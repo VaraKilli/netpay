@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Netpay test</title>
+  <style type="text/css">
+  .invalid {
+    border-color: red;
+    background-color: white;
+  }
+  .theTooltip {
+    max-width: 250px;
+    border-radius: 5px;
+    background-color:white;
+    border: 2px solid red;
+    padding: 2px;
+    color: black;
+    box-sizing: border-box;
+    display: inline-block;
+    position: absolute;
+  }
+</style>
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $('#Text1').keyup(function() {
+    var input = this.value;
+    var pattern = /^[a-zA-Z0-9_]*$/;
+    if(pattern.test(input))
+    {
+      $("span").css("visibility","hidden");
+      $( "#Text1" ).removeClass( "invalid" );
+    }     
+    else
+    {
+      $("span").css("visibility","visible");
+      $( "#Text1" ).addClass( "invalid" );
+    }
+  });
+});
+</script>
+</head>
+<body>
+    <p>
+        <label>Phone number(no spaces and special characters):</label>&nbsp;
+        <input id="Text1" type="text"/>&nbsp;
+        <span style="visibility:hidden" class="theTooltip">Invalid Non Space Text</span>
+    </p> 
+</body>
+</html>
